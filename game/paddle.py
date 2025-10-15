@@ -2,6 +2,8 @@ import pygame
 
 class Paddle:
     def __init__(self, x, y, width, height):
+        self.original_x = x
+        self.original_y = y
         self.x = x
         self.y = y
         self.width = width
@@ -20,3 +22,8 @@ class Paddle:
             self.move(-self.speed, screen_height)
         elif ball.y > self.y + self.height:
             self.move(self.speed, screen_height)
+
+    def reset(self):
+        """Resets the paddle to its original position."""
+        self.x = self.original_x
+        self.y = self.original_y
